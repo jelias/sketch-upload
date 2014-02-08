@@ -1,35 +1,33 @@
 # Introduction
 
-This [Sketch](http://bohemiancoding.com/sketch) plugin provides a preview
-command (⌘P) that will open a specially named slice in
-[Skala Preview](http://bjango.com/mac/skalapreview).
+This [Sketch](http://bohemiancoding.com/sketch) plugin allows designers to upload the selected artboard or slice to
+[Cloud App](http://www.getcloudapp.com/) with a simple shortcut (⇧⌘U).
 The plugin works by exporting the first slice named `Preview` to Sketch's cache
-directory and opening that file in Skala Preview.
+directory and uploading that file via Cloud App.
 
-If you prefer a clipboard-based approach, you may want to check out
-[crop_Artboard](https://github.com/FredericJacobs/crop_Artboard).
 
 # Installation
 
-1. Copy the plugin file to either
-`~/Library/Containers/com.bohemiancoding.sketch/Data/Library/Application\ Support/sketch/Plugins`
-or `~/Library/Application\ Support/sketch/plugins` as described in the Sketch
-[scripting guide](http://bohemiancoding.com/sketch/scripting).
-
-    If you're feeling brave, you can do something like this: `curl https://raw.github.com/marcisme/sketch-preview/master/Preview.jstalk -o ~/Library/Containers/com.bohemiancoding.sketch/Data/Library/Application\ Support/sketch/Plugins/Preview.jstalk`
-
-2. Enable scripting in Sketch if needed
-`Preferences -> General -> Enable Scripting`
-
-3. Create a device screen-sized slice, and name it `Preview`
+Just [download]()
 
 # Compatibility
 
-This plugin was developed with the App Store version of Sketch 2.2.4 and Skala Preview 1.5.2.
+This plugin was developed with the App Store version of Sketch 2.2.4 and Cloud App 2.0
 
 # Author
 
-[Marc Schwieterman](https://github.com/marcisme) ([@mschwieterman](https://twitter.com/mschwieterman) / [@mbs](https://app.net/mbs))
+[Jacob Elias](https://github.com/jelias)
+
+Follow me & ask questions [@jelias](https://twitter.com/_jelias_)
+
+Feel free to contribute: fork, make pull requests, and issues as this is 100% still under development!
+
+#Thanks
+
+Huge thanks to 
+[Marc Schwieterman](https://github.com/marcisme) ([@mschwieterman](https://twitter.com/mschwieterman) / [@mbs](https://app.net/mbs)) for making all this possible!
+
+This plugin is largely based on his [sketch-preview plugin](https://github.com/marcisme/sketch-preview), with a few tweeks from [David Klawitter](https://github.com/davidklaw) and his fork of [sketch-preview](https://github.com/davidklaw/sketch-preview).
 
 # License
 
