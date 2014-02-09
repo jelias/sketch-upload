@@ -10,9 +10,7 @@ directory and uploading that file via Cloud App.
 
 1. Just [download](https://github.com/jelias/sketch-plugins/archive/master.zip) the master.
 
-2. Unzip.
-
-3. Double-click the file `Upload.sketchplugin` inside sketch-upload/. Sketch should open automatically and tell you that a new plugin was installed.
+2. Double-click the file `Upload.sketchplugin` inside sketch-upload/. Sketch should open automatically and tell you that a new plugin was installed.
 
 
 # Usage
