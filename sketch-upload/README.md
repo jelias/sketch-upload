@@ -1,14 +1,38 @@
 # Introduction
 
 This [Sketch](http://bohemiancoding.com/sketch) plugin allows designers to upload the selected artboard or slice to
-[Cloud App](http://www.getcloudapp.com/) with a simple shortcut (⇧⌘U).
+[Cloud App](http://www.getcloudapp.com/) with a simple shortcut `⇧⌘U`.
 The plugin works by exporting the first slice named `Preview` to Sketch's cache
 directory and uploading that file via Cloud App.
 
 
 # Installation
 
-Just [download]()
+1. Just [download](https://github.com/jelias/sketch-plugins/archive/master.zip) the master.
+
+2. Unzip.
+
+3. Double-click the file `Upload.sketchplugin` inside sketch-upload/. Sketch should open automatically and tell you that a new plugin was installed.
+
+
+# Usage
+
+1. Select the artboard or slice you would like to upload.
+
+2. Then run the plugin via `Plugins > Upload` or the simple shortcut `⇧⌘U`.
+
+3. Sketch will prompt you to name your file, `BE SURE TO KEEP THE .PNG` whatever you name it.
+
+4. That's it! Enjoy, and please share with everyone you know.
+
+
+> ###Note: 
+
+>	If you want to upload your designs via another service (i.e. Droplr) just change
+
+> var PREVIEW_APPLICATION = "Cloud";
+	
+>	to what ever app you use.
 
 # Compatibility
 
