@@ -8,7 +8,7 @@ directory and uploading that file via Cloud App.
 
 # Installation
 
-1. Just [download](https://github.com/jelias/sketch-upload/releases/latest) the most recent release.
+1. Just [download the most recent release](https://github.com/jelias/sketch-upload/releases/latest).
 
 2. Double-click the file `Upload.sketchplugin` Sketch should open automatically and tell you that a new plugin was installed.
 
