@@ -20,47 +20,105 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+// Set to true, and check the console for logs
+
+var DEBUG = false;
+
+// Make sure you change this to the app name not the service name.
+// I complied a list of a few common services, feel free to contribute.
+
+// Service - App Name
+//
+// CloudApp - Cloud
+// Droplr   - Droplr
+
 var PREVIEW_APPLICATION = "Cloud";
-var PREVIEW_SLICE_NAME = "Preview";
+var PREVIEW_TARGET_NAME = "Preview";
 
 var PREVIEW_DIRECTORY_NAME = "com.jelias.sketch-upload";
+var LOG_PREFIX = "sketch-upload";
 var PREVIEW_FILE_NAME = [doc askForUserInput:'File Name:' initialValue:'Preview']+".png";
 
+// logging functions
+
+function debug(message) {
+  if (DEBUG) {
+    logWithPrefix(message);
+  }
+}
+
+function error(message) {
+  logWithPrefix(message);
+}
+
+function logWithPrefix(message) {
+  log(LOG_PREFIX + ": " + message);
+}
+
+// preview functions
+
 function preview() {
-  var artboardOrSlice = findPreview();
-  if (artboardOrSlice) {
-    writeAndOpenPreviewFile(artboardOrSlice);
+  var previewTarget = findPreviewTarget();
+  if (previewTarget) {
+    writeAndOpenPreviewFile(previewTarget);
   }
   else {
-    [doc showMessage:"If nothing uploads, try selecting a layer inside the artboard..."];
+    [doc showMessage:"The Preview plugin requires a selected Artboard or a slice named '" + PREVIEW_TARGET_NAME + "'"];
   }
 }
 
-function findPreview() {
-  return findPreviewSlice() || findPreviewArtboard();
+function findPreviewTarget() {
+  return findNamedPreviewTarget() || findSelectedPreviewTarget();
 }
 
-function findPreviewArtboard() {
-  return [[doc currentPage] currentArtboard];
+function findSelectedPreviewTarget() {
+  debug("Searching for selected Artboard");
+  var currentArtboard = [[doc currentPage] currentArtboard];
+  if (currentArtboard) {
+    debug("Found selected Artboard: " + [currentArtboard name]);
+  }
+  else {
+    debug("No Artboard selected");
+  }
+  return currentArtboard;
 }
 
-function findPreviewSlice() {
-  var slices = [[doc currentPage] allSlices];
-  for (var i = 0; i < [slices count]; i++) {
-    var slice = slices[i];
-    if (isPreviewSlice(slice)) {
-      return slice;
+function findNamedPreviewTarget() {
+  debug("Searching for named preview slice: " + PREVIEW_TARGET_NAME);
+  var targets = allTargets();
+  for (var i = 0; i < [targets count]; i++) {
+    var target = targets[i];
+    if (isPreviewTarget([target name])) {
+      debug("Found named preview slice");
+      return target;
     }
   }
+  debug("No named preview slice found");
 }
 
-function isPreviewSlice(slice) {
-  return [[slice name] localizedCaseInsensitiveCompare:PREVIEW_SLICE_NAME] == NSOrderedSame;
+function allTargets() {
+  var currentPage = [doc currentPage];
+  if ([currentPage respondsToSelector:"allSlices"]) {
+    // Sketch 2
+    return [currentPage allSlices];
+  }
+  else if ([currentPage respondsToSelector:"exportableLayers"]) {
+    // Sketch 3
+    return [currentPage exportableLayers];
+  } else {
+    error("Unable to search for target slice; Sketch implementation may have changed");
+    // Return empty array, so we move on to the next strategy
+    return [NSArray new];
+  }
 }
 
-function writeAndOpenPreviewFile(artboardOrSlice) {
+function isPreviewTarget(name) {
+  return [name localizedCaseInsensitiveCompare:PREVIEW_TARGET_NAME] == NSOrderedSame;
+}
+
+function writeAndOpenPreviewFile(previewTarget) {
   var previewFilePath = getPreviewFilePath();
-  [doc saveArtboardOrSlice:artboardOrSlice toFile:previewFilePath];
+  [doc saveArtboardOrSlice:previewTarget toFile:previewFilePath];
   openPreviewFile(previewFilePath);
 }
 
@@ -71,25 +129,12 @@ function getPreviewFilePath() {
 function getPreviewDirectory() {
   var fileManager = [NSFileManager defaultManager];
   var cachesURL = [[fileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
-  var previewDirectory = [[cachesURL URLByAppendingPathComponent:PREVIEW_DIRECTORY_NAME] path];
-  _deprecatedDefensiveDirectoryCreation(fileManager, previewDirectory);
-  return previewDirectory;
+  return [[cachesURL URLByAppendingPathComponent:PREVIEW_DIRECTORY_NAME] path];
 }
 
 function openPreviewFile(previewFilePath) {
   if(![[NSWorkspace sharedWorkspace] openFile:previewFilePath withApplication:PREVIEW_APPLICATION]]) {
     [doc showMessage:"Failed to open preview file; Make sure '" + PREVIEW_APPLICATION + "' is installed."];
-  }
-}
-
-// Creating the preview directory is unnecessary as of Sketch 2.4.2. I don't
-// remember if not creating the directory caused a failure in previous
-// versions, or if I just did it because I've needed to on OSX in the past.
-// Leaving it like this until I can confirm removal won't break on earlier
-// versions of Sketch.
-function _deprecatedDefensiveDirectoryCreation(fileManager, previewDirectory) {
-  if (![fileManager fileExistsAtPath:previewDirectory]) {
-    [fileManager createDirectoryAtPath:previewDirectory withIntermediateDirectories:true attributes:nil error:nil];
   }
 }
 
