@@ -31,6 +31,7 @@ var DEBUG = false;
 //
 // CloudApp - Cloud
 // Droplr   - Droplr
+// puush.me - puush
 
 var PREVIEW_APPLICATION = "Cloud";
 var PREVIEW_TARGET_NAME = "Preview";
