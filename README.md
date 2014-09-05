@@ -37,10 +37,10 @@ directory and uploading that file via Cloud App.
 
 # Compatibility
 
-This plugin was developed with the App Store version of Sketch 3.0.1 and Cloud App 2.0
+This plugin was developed with the App Store version of Sketch 3.0.1 and Cloud App 3.0.0
 
 > ###Note:
-> Have not tested v.3 on Sketch 2. If there are problems revert to v.2 and let me know! 
+> Have not tested v.3 of Sketch Upload on Sketch 2. If there are problems revert to v.2 and let me know! 
 
 # Troubleshooting
 
