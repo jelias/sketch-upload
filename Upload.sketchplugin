@@ -29,11 +29,11 @@ var DEBUG = false;
 
 // Service - App Name
 //
-// CloudApp - Cloud
+// CloudApp - CloudApp
 // Droplr   - Droplr
 // puush.me - puush
 
-var PREVIEW_APPLICATION = "Cloud";
+var PREVIEW_APPLICATION = "CloudApp";
 var PREVIEW_TARGET_NAME = "Preview";
 
 var PREVIEW_DIRECTORY_NAME = "com.jelias.sketch-upload";
