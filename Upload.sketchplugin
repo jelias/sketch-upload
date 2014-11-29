@@ -34,7 +34,7 @@ var DEBUG = false;
 // puush.me - puush
 
 var PREVIEW_APPLICATION = "CloudApp";
-var PREVIEW_TARGET_NAME = "Preview";
+var PREVIEW_TARGET_NAME = "Upload";
 
 var PREVIEW_DIRECTORY_NAME = "com.jelias.sketch-upload";
 var LOG_PREFIX = "sketch-upload";
@@ -64,7 +64,7 @@ function preview() {
     writeAndOpenPreviewFile(previewTarget);
   }
   else {
-    [doc showMessage:"The Preview plugin requires a selected Artboard or a slice named '" + PREVIEW_TARGET_NAME + "'"];
+    [doc showMessage:"This plugin requires a selected Artboard or a slice named '" + PREVIEW_TARGET_NAME + "'"];
   }
 }
 
