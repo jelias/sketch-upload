@@ -12,6 +12,13 @@ directory and uploading that file via Cloud App.
 
 2. Double-click the file `Upload.sketchplugin` Sketch should open automatically and tell you that a new plugin was installed.
 
+####or
+
+1. Download [Sketch Toolbox](http://sketchtoolbox.com/)
+
+2. Search "Sketch Upload" and press install.
+
+3. Enjoy!
 
 # Usage
 
