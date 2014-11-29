@@ -1,5 +1,11 @@
 #### Changelog `(Major.Minor.Build)`
 
+##### v0.4
+
+- Cleaned Up Error Messages
+- Fixed CloudApp 3.1.0 Compatability
+- Updated service list
+
 ##### v0.3
 
 - Added Debuging
