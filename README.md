@@ -44,7 +44,7 @@ directory and uploading that file via Cloud App.
 
 # Compatibility
 
-This plugin was developed with the App Store version of Sketch 3.0.1 and Cloud App 3.0.0
+This plugin was developed with the App Store version of Sketch 3.1.1 and Cloud App 3.1.0
 
 > ###Note:
 > Have not tested v.3 of Sketch Upload on Sketch 2. If there are problems revert to v.2 and let me know! 
@@ -57,7 +57,7 @@ If you are still having problems, create an issue and explain the problem in ful
 
 # Author
 
-[Jacob Elias](jelias.me)
+[Jacob Elias](http://jelias.me)
 
 Follow me & ask questions [@jelias](https://twitter.com/_jelias_)
 
