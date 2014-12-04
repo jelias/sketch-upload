@@ -35,11 +35,11 @@ directory and uploading that file via Cloud App.
 
 >	If you want to upload your designs via another service (i.e. Droplr) just change
 
-> `var PREVIEW_APPLICATION = "Cloud";`
+> `var PREVIEW_APPLICATION = "CloudApp";`
 	
 >	to what ever app you use.
 
->	BUT BE SURE TO PUT THE APP NAME!
+>	BUT BE SURE TO PUT THE APP NAME, NOT THE SERVICE NAME!
 
 
 # Compatibility
@@ -47,7 +47,7 @@ directory and uploading that file via Cloud App.
 This plugin was developed with the App Store version of Sketch 3.1.1 and Cloud App 3.1.0
 
 > ###Note:
-> Have not tested v.3 of Sketch Upload on Sketch 2. If there are problems revert to v.2 and let me know! 
+> Have not tested v.4 of Sketch Upload on Sketch 2. If there are problems revert to v.2 and let me know! 
 
 # Troubleshooting
 
@@ -55,13 +55,21 @@ If there are any problems with this plugin try debuging the problem first. Simpl
 
 If you are still having problems, create an issue and explain the problem in full detail. For example, provide steps to reproduce the problem and if you are willing, the .sketch file. Logs would aslo be helpful ;) 
 
+## Known Problems
+
+1. Cloudup does not work with this plugin. ([Issue #4](https://github.com/jelias/sketch-upload/issues/4))
+
+2. Sketch Upload does not work without an artboard or slice named ```upload```. ([Issue #7](https://github.com/jelias/sketch-upload/issues/7))
+
+
+
 # Author
 
 [Jacob Elias](http://jelias.me)
 
 Follow me & ask questions [@jelias](https://twitter.com/_jelias_)
 
-and feel free to contribute, I don't bite ;)
+and feel free to contribute, your help would be greatly appreciated.
 
 #Thanks
 
