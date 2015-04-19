@@ -1,6 +1,6 @@
 // Upload designs to the cloud (shift cmd u)
 
-// Copyright (c) 2014 Jacob Elias
+// Copyright (c) 2015 Jacob Elias
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -33,12 +33,28 @@ var DEBUG = false;
 // Droplr   - Droplr
 // puush.me - puush
 
+
+// Gets name of selected layer/artboard to set as initial file name
+var doc = context.document;
+var i=0
+// var artboards = [[doc currentPage] artboards];
+// var artboard = artboards[i];
+// var artboardName = [artboard name];
+var selection = context.selection
+var selected = selection[i]
+var selectionName = [selected name]
+
+// Begin.
 var PREVIEW_APPLICATION = "CloudApp";
-var PREVIEW_TARGET_NAME = "Upload";
+var PREVIEW_TARGET_NAME = "Preview";
 
 var PREVIEW_DIRECTORY_NAME = "com.jelias.sketch-upload";
 var LOG_PREFIX = "sketch-upload";
-var PREVIEW_FILE_NAME = [doc askForUserInput:'File Name:' initialValue:'Preview']+".png";
+var PREVIEW_FILE_NAME = [doc askForUserInput:'File Name:' initialValue:selectionName]+".png";
+
+// Stop plugin if user hit's cancel
+var cancel = 'null.png'
+if(PREVIEW_FILE_NAME==cancel){log("User canceled");return("stop")};
 
 // logging functions
 
@@ -64,7 +80,7 @@ function preview() {
     writeAndOpenPreviewFile(previewTarget);
   }
   else {
-    [doc showMessage:"This plugin requires a selected Artboard or a slice named '" + PREVIEW_TARGET_NAME + "'"];
+    [doc showMessage:"The Upload plugin requires a selected Artboard or a slice named '" + PREVIEW_TARGET_NAME + "'"];
   }
 }
 
